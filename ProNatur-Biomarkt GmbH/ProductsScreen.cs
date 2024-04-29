@@ -19,8 +19,7 @@ namespace ProNatur_Biomarkt_GmbH
 
         private void btnProductSave_Click(object sender, EventArgs e)
         {
-            var productName = textboxProductName.Text;
-            Console.WriteLine(productName);
+
         }
 
         private void btnProductEdit_Click(object sender, EventArgs e)
