@@ -209,7 +209,9 @@
             this.productsDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.productsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productsDGV.Location = new System.Drawing.Point(12, 211);
+            this.productsDGV.MultiSelect = false;
             this.productsDGV.Name = "productsDGV";
+            this.productsDGV.ReadOnly = true;
             this.productsDGV.RowHeadersVisible = false;
             this.productsDGV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.productsDGV.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
@@ -217,8 +219,10 @@
             this.productsDGV.RowTemplate.DefaultCellStyle.NullValue = null;
             this.productsDGV.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
             this.productsDGV.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.productsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productsDGV.Size = new System.Drawing.Size(657, 214);
             this.productsDGV.TabIndex = 13;
+            this.productsDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDGV_CellClick);
             // 
             // ProductsScreen
             // 

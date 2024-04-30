@@ -15,7 +15,8 @@ namespace ProNatur_Biomarkt_GmbH
     public partial class ProductsScreen : Form
     {
         private SqlConnection databaseConnection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=C:\Users\kenko\Documents\Pro-Natur Biomarkt GmbH.mdf;Integrated Security = True; Connect Timeout = 30");
-
+        private int lastSelectedProductKey;
+      
         public ProductsScreen()
         {
             InitializeComponent();
@@ -33,18 +34,13 @@ namespace ProNatur_Biomarkt_GmbH
             string productBrand = textboxProductBrand.Text;
             string productCategory = comboboxProductCategory.Text;
             string productPrice = textboxProductPrice.Text;
-
-            databaseConnection.Open();
             string query = string.Format("insert into Products values('{0}','{1}','{2}','{3}')", productName, productBrand, productCategory, productPrice);
-            SqlCommand sqlCommand = new SqlCommand(query, databaseConnection);
-            sqlCommand.ExecuteNonQuery();
-            databaseConnection.Close();
-
+            ExecuteQuery(query);
 
             ClearAllFields();
             showProducts();
         }
-
+        
         private void btnProductEdit_Click(object sender, EventArgs e)
         {
             ClearAllFields();
@@ -58,6 +54,14 @@ namespace ProNatur_Biomarkt_GmbH
 
         private void btnProductDelete_Click(object sender, EventArgs e)
         {
+            if(lastSelectedProductKey == 0)
+            {
+                MessageBox.Show("Bitte wähle zuerst ein Produkt aus.");
+                return;
+            }
+            string query = string.Format("delete from Products where Id={0};", lastSelectedProductKey);
+            ExecuteQuery(query);
+            ClearAllFields();
             showProducts();
         }
 
@@ -84,6 +88,24 @@ namespace ProNatur_Biomarkt_GmbH
             textboxProductName.Clear();
             textboxProductPrice.Clear();
             comboboxProductCategory.SelectedItem = null;
+        }
+
+        private void productsDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textboxProductName.Text = productsDGV.SelectedRows[0].Cells[1].Value.ToString();
+            textboxProductBrand.Text = productsDGV.SelectedRows[0].Cells[2].Value.ToString();
+            comboboxProductCategory.Text = productsDGV.SelectedRows[0].Cells[3].Value.ToString();
+            textboxProductPrice.Text = productsDGV.SelectedRows[0].Cells[4].Value.ToString();
+            // Primary Key
+            lastSelectedProductKey = (int)productsDGV.SelectedRows[0].Cells[0].Value;
+        }
+
+        private void ExecuteQuery(string query)
+        {
+            databaseConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand(query, databaseConnection);
+            sqlCommand.ExecuteNonQuery();
+            databaseConnection.Close();
         }
     }
 }
