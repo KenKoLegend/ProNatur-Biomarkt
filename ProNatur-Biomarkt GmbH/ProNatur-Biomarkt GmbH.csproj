@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BillScreen.cs">
+    <Compile Include="BillScreenWindows\BillScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BillScreen.Designer.cs">
+    <Compile Include="BillScreenWindows\BillScreen.Designer.cs">
       <DependentUpon>BillScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="BillScreenWindows\BillScreenShowWindow.cs">
@@ -78,7 +78,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BillScreen.resx">
+    <EmbeddedResource Include="BillScreenWindows\BillScreen.resx">
       <DependentUpon>BillScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BillScreenWindows\BillScreenShowWindow.resx">

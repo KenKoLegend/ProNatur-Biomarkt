@@ -1,20 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
-
+using ProNatur_Biomarkt_GmbH;
 namespace ProNatur_Biomarkt_GmbH.BillScreenWindows
 {
-    public partial class BillScreenShowWindow : Form
-    {
+    public partial class BillScreenShowWindow : Form 
+
+        {
         public BillScreenShowWindow()
         {
             InitializeComponent();
         }
+        
+        public string BillScreenRechnungsNummer(string idstring, string vorname, string text, string price)
+        {   
+            valueRechnungsID.Text = "#" + idstring;
+            valueVorname.Text = vorname;
+            valueRichTextInhalt.Text = text;
+            textboxPrice.Text = price + "€";
+            return valueRechnungsID.Text;
+            
+        }
+        
     }
 }

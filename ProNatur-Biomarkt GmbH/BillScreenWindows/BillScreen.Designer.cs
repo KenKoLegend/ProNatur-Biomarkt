@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillScreen));
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.billingDGV = new System.Windows.Forms.DataGridView();
             this.btnBillScreenCreate = new System.Windows.Forms.Button();
             this.btnBillScreenEdit = new System.Windows.Forms.Button();
             this.btnBillScreenDelete = new System.Windows.Forms.Button();
             this.btnBillScreenBack = new System.Windows.Forms.Button();
             this.btnBillScreenShow = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billingDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -51,14 +51,30 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Rechnungen : ";
             // 
-            // dataGridView1
+            // billingDGV
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 140);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(613, 239);
-            this.dataGridView1.TabIndex = 2;
+            this.billingDGV.AllowUserToAddRows = false;
+            this.billingDGV.AllowUserToDeleteRows = false;
+            this.billingDGV.AllowUserToResizeColumns = false;
+            this.billingDGV.AllowUserToResizeRows = false;
+            this.billingDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.billingDGV.BackgroundColor = System.Drawing.Color.LightGray;
+            this.billingDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.billingDGV.Location = new System.Drawing.Point(12, 140);
+            this.billingDGV.MultiSelect = false;
+            this.billingDGV.Name = "billingDGV";
+            this.billingDGV.RowHeadersVisible = false;
+            this.billingDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.billingDGV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.billingDGV.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.billingDGV.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
+            this.billingDGV.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.billingDGV.RowTemplate.ReadOnly = true;
+            this.billingDGV.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.billingDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.billingDGV.Size = new System.Drawing.Size(613, 239);
+            this.billingDGV.TabIndex = 2;
+            this.billingDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.billingDGV_CellClick);
             // 
             // btnBillScreenCreate
             // 
@@ -131,7 +147,7 @@
             this.Controls.Add(this.btnBillScreenDelete);
             this.Controls.Add(this.btnBillScreenEdit);
             this.Controls.Add(this.btnBillScreenCreate);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.billingDGV);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -139,7 +155,7 @@
             this.Name = "BillScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BillScreen";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billingDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,7 +163,7 @@
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView billingDGV;
         private System.Windows.Forms.Button btnBillScreenCreate;
         private System.Windows.Forms.Button btnBillScreenEdit;
         private System.Windows.Forms.Button btnBillScreenDelete;
