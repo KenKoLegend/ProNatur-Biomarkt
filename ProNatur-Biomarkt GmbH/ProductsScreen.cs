@@ -19,7 +19,50 @@ namespace ProNatur_Biomarkt_GmbH
         public ProductsScreen()
         {
             InitializeComponent();
+            showProducts();
+        }
 
+        private void btnProductSave_Click(object sender, EventArgs e)
+        {
+            if(textboxProductName.Text == "" || textboxProductBrand.Text == "" || textboxProductPrice.Text == "" || comboboxProductCategory.Text == "")
+            {
+                MessageBox.Show("Bitte fülle alle Werte aus.");
+                return;
+            }
+            string productName = textboxProductName.Text;
+            string productBrand = textboxProductBrand.Text;
+            string productCategory = comboboxProductCategory.Text;
+            string productPrice = textboxProductPrice.Text;
+
+            databaseConnection.Open();
+            string query = string.Format("insert into Products values('{0}','{1}','{2}','{3}')", productName, productBrand, productCategory, productPrice);
+            SqlCommand sqlCommand = new SqlCommand(query, databaseConnection);
+            sqlCommand.ExecuteNonQuery();
+            databaseConnection.Close();
+
+
+            ClearAllFields();
+            showProducts();
+        }
+
+        private void btnProductEdit_Click(object sender, EventArgs e)
+        {
+            ClearAllFields();
+            showProducts();
+        }
+
+        private void btnProductClear_Click(object sender, EventArgs e)
+        {
+            ClearAllFields();
+        }
+
+        private void btnProductDelete_Click(object sender, EventArgs e)
+        {
+            showProducts();
+        }
+
+        private void showProducts()
+        {
             databaseConnection.Open();
 
             string query = "select * from Products";
@@ -35,24 +78,12 @@ namespace ProNatur_Biomarkt_GmbH
             databaseConnection.Close();
         }
 
-        private void btnProductSave_Click(object sender, EventArgs e)
+        private void ClearAllFields ()
         {
-
-        }
-
-        private void btnProductEdit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnProductClear_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnProductDelete_Click(object sender, EventArgs e)
-        {
-
+            textboxProductBrand.Clear();
+            textboxProductName.Clear();
+            textboxProductPrice.Clear();
+            comboboxProductCategory.SelectedItem = null;
         }
     }
 }
