@@ -10,16 +10,18 @@ namespace ProNatur_Biomarkt_GmbH.BillScreenWindows
         public BillScreenShowWindow()
         {
             InitializeComponent();
+            BillScreen billScreen = new BillScreen();
+            billScreen.SqlShowBillings();
         }
         
         public string BillScreenRechnungsNummer(string idstring, string vorname, string text, string price)
         {   
-            valueRechnungsID.Text = "#" + idstring;
+            valueRechnungsID.Text = idstring;
             valueVorname.Text = vorname;
             valueRichTextInhalt.Text = text;
             textboxPrice.Text = price + "€";
             return valueRechnungsID.Text;
-            
+
         }
         
     }

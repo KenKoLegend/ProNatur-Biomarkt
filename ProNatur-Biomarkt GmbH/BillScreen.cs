@@ -30,6 +30,7 @@ namespace ProNatur_Biomarkt_GmbH
             string vorname = billingDGV.SelectedRows[0].Cells[2].Value.ToString();
             string text = billingDGV.SelectedRows[0].Cells[3].Value.ToString();
             string price = billingDGV.SelectedRows[0].Cells[4].Value.ToString();
+
             if (lastSelectedProductKey == 0)
             {
                 MessageBox.Show("Bitte wähle zuerst eine Rechnung aus.");
@@ -44,17 +45,29 @@ namespace ProNatur_Biomarkt_GmbH
 
         private void btnBillScreenCreate_Click(object sender, EventArgs e)
         {
-
+            BillScreenWindowCreate billScreenWindowCreate = new BillScreenWindowCreate();
+            int iid = billingDGV.Rows.Count;
+            string id = iid.ToString();
+            billScreenWindowCreate.RechnungsIdAendern(id);
+            billScreenWindowCreate.Show();
         }
 
         private void btnBillScreenEdit_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnBillScreenDelete_Click(object sender, EventArgs e)
         {
+            if (lastSelectedProductKey == 0)
+            {
+                MessageBox.Show("Bitte wählen sie zuerst eine Rechnung aus.");
+            }
 
+            string query = string.Format("delete from Billing where Id={0};", lastSelectedProductKey);
+            ProductsScreen productsScreen = new ProductsScreen();
+            productsScreen.ExecuteQuery(query);
+            SqlShowBillings();
         }
 
         private void btnBillScreenBack_Click(object sender, EventArgs e)
@@ -64,7 +77,7 @@ namespace ProNatur_Biomarkt_GmbH
             this.Hide();
         }
 
-        private void SqlShowBillings()
+        public void SqlShowBillings()
         {
             databaseConnection.Open();
             string query = "select * from Billing";

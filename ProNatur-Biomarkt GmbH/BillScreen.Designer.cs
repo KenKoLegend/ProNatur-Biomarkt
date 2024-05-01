@@ -67,6 +67,8 @@
             this.billingDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.billingDGV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.billingDGV.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.billingDGV.RowTemplate.DefaultCellStyle.Format = "C2";
+            this.billingDGV.RowTemplate.DefaultCellStyle.NullValue = null;
             this.billingDGV.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
             this.billingDGV.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.billingDGV.RowTemplate.ReadOnly = true;

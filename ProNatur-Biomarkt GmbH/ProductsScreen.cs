@@ -80,7 +80,7 @@ namespace ProNatur_Biomarkt_GmbH
             showProducts();
         }
 
-        private void showProducts()
+        public void showProducts()
         {
             databaseConnection.Open();
 
@@ -115,7 +115,7 @@ namespace ProNatur_Biomarkt_GmbH
             lastSelectedProductKey = (int)productsDGV.SelectedRows[0].Cells[0].Value;
         }
         //Database Connection open and close
-        private void ExecuteQuery(string query)
+        public void ExecuteQuery(string query)
         {
             databaseConnection.Open();
             SqlCommand sqlCommand = new SqlCommand(query, databaseConnection);

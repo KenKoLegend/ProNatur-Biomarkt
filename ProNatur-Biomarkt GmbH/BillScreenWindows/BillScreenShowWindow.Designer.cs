@@ -139,7 +139,7 @@
             this.Name = "BillScreenShowWindow";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BillScreenShowWindow";
+            this.Text = "Anzeigen";
             this.ResumeLayout(false);
             this.PerformLayout();
 

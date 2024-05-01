@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BillScreenWindows\BillScreen.cs">
+    <Compile Include="BillScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BillScreenWindows\BillScreen.Designer.cs">
+    <Compile Include="BillScreen.Designer.cs">
       <DependentUpon>BillScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="BillScreenWindows\BillScreenShowWindow.cs">
@@ -57,6 +57,12 @@
     </Compile>
     <Compile Include="BillScreenWindows\BillScreenShowWindow.Designer.cs">
       <DependentUpon>BillScreenShowWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillScreenWindows\BillScreenWindowCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillScreenWindows\BillScreenWindowCreate.Designer.cs">
+      <DependentUpon>BillScreenWindowCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="LoadingScreen.cs">
       <SubType>Form</SubType>
@@ -78,11 +84,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BillScreenWindows\BillScreen.resx">
+    <EmbeddedResource Include="BillScreen.resx">
       <DependentUpon>BillScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BillScreenWindows\BillScreenShowWindow.resx">
       <DependentUpon>BillScreenShowWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillScreenWindows\BillScreenWindowCreate.resx">
+      <DependentUpon>BillScreenWindowCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingScreen.resx">
       <DependentUpon>LoadingScreen.cs</DependentUpon>
